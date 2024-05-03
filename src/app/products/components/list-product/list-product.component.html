@@ -1,0 +1,33 @@
+<div class="containter">
+  <input type="text" class="m-1" placeholder="Buscar por ID.." #txtTag>
+  <button class="btn btn-primary" (click)="findById()">Buscar</button>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>price</th>
+            <th>description</th>
+            <th>mail</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listProduct">
+            <th>{{item.name}}</th>
+            <th>{{item.price}}</th>
+            <th>{{item.description}}</th>
+            <th>{{item.mail}}</th>
+            <th>{{item.date | date:"dd-MM-yyyy"}}</th>
+            <th>
+              <button class="btn btn-info m-2" routerLink="updateProduct/{{item._id}}" routerLinkActive="router-link-active" >Edit</button>
+              <button class="btn btn-danger" (click)="delete(item._id)">Delete</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
